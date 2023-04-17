@@ -1,6 +1,15 @@
 extends Camera2D
 
+var player = null
+
+func _ready():
+	queue_free()
+
 func _process(_delta):
-	var player = get_node_or_null("/root/Game/Player_Container/Player")
+	player = get_node_or_null("/root/Game/Player_Container/Player")
 	if player != null:
 		position = player.position
+
+func _physics_process(_delta):
+	var vtrans = get_canvas_transform()
+	var top_left = -vtrans.get_origin() / vtrans.get_scale()
