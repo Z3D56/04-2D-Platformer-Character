@@ -19,8 +19,7 @@ func _physics_process(delta):
 
 
 func _on_Area2D_body_entered(body):
-	print(body.name)
-	if body.name == "Platform" or body.name == "Ground":
+	if velocity.x != 0 and (body.name == "Platform" or body.name == "Ground"):
 		direction *= -1
 		velocity.x = 0
 	if body.name == "Player":
@@ -28,7 +27,6 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Area2D2_body_entered(body):
-	print(body.name)
 	if body.name == "Platform" or body.name == "Ground":
 		direction *= -1
 		velocity.x = 0
